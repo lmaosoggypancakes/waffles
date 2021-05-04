@@ -18,7 +18,7 @@ class PostViewSet(viewsets.ModelViewSet):
 @csrf_exempt
 def update(request, id):
     post = Post.objects.get(id=id)
-    if request.GET["ok"]:
+    if request.GET["ok"] == "true":
         post.likes += 1
         post.save()
     else: 
