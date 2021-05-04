@@ -23,7 +23,7 @@
                 class="btn btn-dark"
                 ref="to"
                 data-to="/all"
-                @click="$router.push('/all')"
+                @click="$router.push('/')"
               >
                 All Posts
               </button>
@@ -113,9 +113,3 @@ body {
   cursor: pointer;
 }
 </style>
-<script>
-export default {
-  name: "App",
-  mounted() {},
-};
-</script>
