@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import axios from "axios";
 // @ is an alias to /src
 import ShowPost from "@/components/ShowPost.vue";
 export default {
@@ -23,31 +24,13 @@ export default {
   components: { ShowPost },
   data() {
     return {
-      posts: [
-        {
-          body: "Me and the boys",
-          author: {
-            username: "Josef",
-            image: "/images/",
-            first_name: "lmao",
-          },
-          timestamp: "October 12, 2021",
-          likes: 0,
-          id: 23,
-        },
-        {
-          body: "Pogggers",
-          author: {
-            username: "Hercules",
-            image: "/images/no",
-            first_name: "hercules",
-          },
-          timestamp: "October 17, 2021",
-          likes: 5,
-          id: 50,
-        },
-      ],
+      posts: [],
     };
+  },
+  mounted() {
+    axios.get("http://localhost:8000/posts/").then((res) => {
+      this.posts = res.data;
+    });
   },
 };
 </script>

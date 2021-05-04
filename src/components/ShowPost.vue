@@ -19,18 +19,23 @@ export default {
   methods: {
     like() {
       if (this.$store.state.auth) {
+        var ok;
         /* user is authenticated */ let heart = this.$refs.heart;
         if (heart.className === "far fa-heart like" /* not liked yet */) {
           this.$props.newPost.likes++;
           heart.className = "fas fa-heart like";
+          ok = true;
         } else {
           this.$props.newPost.likes--;
           heart.className = "far fa-heart like";
+          ok = false;
         }
-        axios("http://localhost:8000/posts/" + this.$props.newPost.id + "/", {
-          method: "PUT",
-          body: this.$store.state.username,
-        });
+        axios(
+          "http://localhost:8000/api/posts/" +
+            this.$props.newPost.id +
+            "/?ok=" +
+            ok
+        );
         // update the like count, the server will do the rest
       } else {
         // user is not authenticated
