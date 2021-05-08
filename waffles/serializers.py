@@ -4,10 +4,10 @@ from .models import User, Post, Message
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'freinds']
+        fields = ['id', 'username', 'email']
         
 class PostSerializer(serializers.ModelSerializer): 
-    author = UserSerializer(read_only=True)
+    author = UserSerializer()
     class Meta:
         model = Post
         fields = ['body', 'likes', 'author', 'timestamp', 'id'] 

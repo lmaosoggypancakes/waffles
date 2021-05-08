@@ -26,17 +26,18 @@ SECRET_KEY = 'django-insecure-nv#^awe^f@5271td^1ji^u7vt2j6p293r_bi9wui^ra)^zdp42
 DEBUG = True
 
 ALLOWED_HOSTS = []
-CORS_ALLOW_ALL_ORIGIN = True
-CORS_ALLOWED_ORIGINS = [
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost',
+    'http://localhost:8000',
     'http://localhost:8080'
-]
+)
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'channels',
     'rest_framework',
     'waffles',
-    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -7,7 +7,7 @@ router.register(r'posts', views.PostViewSet)
 from rest_framework_simplejwt import views as jwt_views
 urlpatterns = [
     # API request routing
-    path('auth/login', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('auth/login/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     path("", include(router.urls)),
     path("api/posts/<int:id>/", views.update),
