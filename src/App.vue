@@ -16,7 +16,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0" v-if="$store.state.auth">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <div class="container">
               <button
@@ -36,6 +36,7 @@
                 ref="to"
                 data-to="/freinds"
                 @click="$router.push('/freinds')"
+                v-if="$store.state.auth"
               >
                 Freinds
               </button>
@@ -48,6 +49,7 @@
                 ref="to"
                 data-to="/new"
                 @click="$router.push('/new')"
+                v-if="$store.state.auth"
               >
                 New Post
               </button>

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row" style="margin-top: 10vh"></div>
     <div class="row">
-      <div class="col-3">aaa</div>
+      <div class="col-3"></div>
       <div class="col-6">
         <show-post
           v-for="post in posts"
