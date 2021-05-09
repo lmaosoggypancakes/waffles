@@ -12,11 +12,12 @@
             <input
               type="text"
               class="form-control form-control-sm"
-              id="username"
+              id="username-l"
               v-model="username"
               @click="update('username')"
               ref="username"
               @keydown="next"
+              autofocus
             />
             <label for="password" ref="label-password" class="label-password"
               >Password</label
@@ -24,7 +25,7 @@
             <input
               type="password"
               class="form-control form-control-sm"
-              id="password"
+              id="password-l"
               v-model="password"
               @click="update('password')"
               ref="password"
@@ -125,8 +126,8 @@ export default {
   padding: 3em;
   border-radius: 5px;
 }
-#username,
-#password {
+#username-l,
+#password-l {
   margin-bottom: 2em;
   transition: all 250ms;
 }
