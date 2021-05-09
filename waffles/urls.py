@@ -11,5 +11,6 @@ urlpatterns = [
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     path("", include(router.urls)),
     path("api/posts/<int:id>/", views.update),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path("auth/freinds/", views.add_freind)
 ]
