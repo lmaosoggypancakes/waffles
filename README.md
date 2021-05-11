@@ -3,7 +3,7 @@
 **Hello, World!** This is a social media application that I developed, titled *Waffles*.
 
 ## Frameworks/Libraries used
-
+(backend/frontend code can be found on their respective branches of this repo)
 1. Django
   - Django REST Framework
   - Django Channels
