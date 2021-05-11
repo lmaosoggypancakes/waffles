@@ -42,3 +42,7 @@ def update(request, id):
     return JsonResponse({
         "message": "post updated."
     })
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def freinds(request):
+    return Response(request.user.serialize_freinds())

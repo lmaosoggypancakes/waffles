@@ -12,5 +12,6 @@ urlpatterns = [
     path("", include(router.urls)),
     path("api/posts/<int:id>/", views.update),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path("auth/freinds/", views.add_freind)
+    path("auth/freinds/", views.add_freind),
+    path("freinds", views.freinds)
 ]
