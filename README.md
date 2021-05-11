@@ -33,3 +33,10 @@ Django REST Framework is used for view sets, handling API requests, and managing
 ## Frontend
 
 The frontend is a Vue.js single page application that uses Vue router in order to provide a better user experience. Bootstrap is used as the primary CSS framework, with other JS libraries such as JQuery used for UI.
+
+
+## Images
+![](1.png)
+![](2.png)
+![](3.png)
+![](4.png)
