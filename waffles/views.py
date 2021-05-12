@@ -12,13 +12,7 @@ SAFE_METHODS = ['GET', 'HEAD', 'OPTIONS']
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-@api_view(["PUT"])
-@permission_classes([IsAuthenticated])
-def add_freind(request):
-    request.user.freinds.add(User.objects.get(username=request.data["username"]))
-    return Response({
-        "message": "Freinds list updated!"
-    })
+
 class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     queryset = Post.objects.all().order_by("-timestamp")
@@ -42,7 +36,13 @@ def update(request, id):
     return JsonResponse({
         "message": "post updated."
     })
-@api_view(["GET"])
+@api_view(["GET", "PUT"])
 @permission_classes([IsAuthenticated])
-def freinds(request):
-    return Response(request.user.serialize_freinds())
+def friends(request):
+    if request.method == "GET":
+        return Response(request.user.serialize_freinds())
+    else: 
+        request.user.freinds.add(User.objects.get(username=request.data["username"]))
+        return Response({
+            "Freinds list updated!"
+        })
