@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-
 class User(AbstractUser):
     freinds = models.ManyToManyField('self', symmetrical=True)
     def serialize(self):
@@ -15,7 +14,8 @@ class User(AbstractUser):
         }
     def serialize_freinds(self):
         return [user.serialize() for user in self.freinds.all()] 
-
+        # notice we don't serialize a user's friend's friends, this would
+        # reach recursion limits if we don't specify a depth.
 class Post(models.Model):
     body = models.TextField()
     author = models.ForeignKey('user', on_delete=models.CASCADE)

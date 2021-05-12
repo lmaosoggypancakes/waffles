@@ -3,3 +3,4 @@ channels-redis
 djangorestframework
 django-cors-headers
 djangorestframework-simplejwt
+whitenoise
