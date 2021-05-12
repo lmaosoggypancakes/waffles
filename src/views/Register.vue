@@ -130,7 +130,10 @@ export default {
             password: this.p1,
             email: this.email,
           })
-          .then((res) => alert(res.data));
+          .then(() => {
+            alert("Account Created!");
+            this.$router.push("/");
+          });
       } else {
         alert("Passwords must match!");
       }

@@ -51,6 +51,7 @@ export default {
       new_msg: "",
     };
   },
+  components: {},
   methods: {
     send_message() {
       if (this.ws) {
@@ -106,7 +107,7 @@ export default {
         this.$refs[data.from.username].innerHTML = "!";
       }
     };
-    let data = await axios.get("http://localhost:8000/freinds", {
+    let data = await axios.get("http://localhost:8000/friends/", {
       headers: {
         authorization: `Bearer ${this.$store.state.token}`,
       },

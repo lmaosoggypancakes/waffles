@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <success :show="show" msg="You have been logged in!"></success>
     <div class="row">
       <div class="col-3"></div>
       <div class="text-white bg-danger col-6">
@@ -51,13 +52,18 @@
 
 <script>
 import axios from "axios";
+import Success from "../components/Popup";
 export default {
   name: "Login",
   data() {
     return {
       username: "",
       password: "",
+      show: "none",
     };
+  },
+  components: {
+    Success,
   },
   methods: {
     login() {
@@ -80,8 +86,8 @@ export default {
           this.$store.state.auth = true;
           console.log(res.data);
           this.$store.commit("set_token", res.data.access);
-          alert("You have been logged in!");
-          this.$router.push("/");
+          this.show = "block";
+          // this.$router.push("/");
         })
         .catch(() => {
           // err
@@ -104,6 +110,10 @@ export default {
         this.$refs["label-password"].style.fontSize = "2em";
         this.$refs["label-username"].style.fontSize = "1em";
       }
+    },
+    updateShow() {
+      if (this.show === "block") this.show = "none";
+      else this.show = "block";
     },
     next() {
       if (event.keyCode === 13 || event.keyCode === 9) {

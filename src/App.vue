@@ -35,7 +35,7 @@
                 class="btn btn-dark"
                 ref="to"
                 data-to="/freinds"
-                @click="$router.push('/freinds')"
+                @click="add"
                 v-if="$store.state.auth"
               >
                 Freinds
@@ -103,7 +103,33 @@
   </nav>
   <router-view />
 </template>
-
+<script>
+import axios from "axios";
+export default {
+  name: "App",
+  methods: {
+    add() {
+      console.log("TOKEN: " + this.$store.state.token);
+      let username = prompt("Username of freind you would like to add: ");
+      axios
+        .put(
+          "http://localhost:8000/friends/",
+          {
+            username: username,
+          },
+          {
+            headers: {
+              authorization: `Bearer ${this.$store.state.token}`,
+            },
+          }
+        )
+        .then((res) => {
+          alert(res.data);
+        });
+    },
+  },
+};
+</script>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@0;1&display=swap");
 html,

@@ -32,6 +32,7 @@ export default {
       this.posts = res.data;
     });
   },
+  methods: {},
 };
 </script>
 <style>
