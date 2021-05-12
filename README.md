@@ -1,7 +1,7 @@
 # Waffles
 
 **Hello, World!** This is a social media application that I developed, titled *Waffles*.
-Deployed website can be found [here](https://lmaosoggywaffles.github.io)
+Deployed website can be found [here](https://lmaosoggypancakes.github.io)
 
 ## Frameworks/Libraries used
 (backend/frontend code can be found on their respective branches of this repo)
