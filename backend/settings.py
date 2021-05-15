@@ -30,7 +30,8 @@ CORS_ORIGIN_WHITELIST = (
     "https://lmaosoggypancakes.github.io",
     'http://localhost',
     'http://localhost:8000',
-    'http://localhost:8080'
+    'http://localhost:8080',
+    'https://josefmacera.netlify.app'
 )
 # Application definition
 
